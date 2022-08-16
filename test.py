@@ -44,7 +44,7 @@ def login(driver):
     form2.send_keys("alumnoipm")
     button = driver.find_element(By.ID,"btn")
     button.click()
-    driver.quit()
+    
 # run_session function searches for 'BrowserStack' on duckduckgo.com
 def run_session(cap):
     cap["userName"] = os.environ.get("BROWSERSTACK_USERNAME") or "brunocalabrese_dhGcyb"
@@ -57,6 +57,7 @@ def run_session(cap):
     )
     driver.get("https://tpheroku-9-8.herokuapp.com/")
     login(driver)
+    driver.quit()
     
 # The Thread function takes run_session function and each set of capability from the caps array as an argument to run each session parallelly
 for cap in capabilities:
