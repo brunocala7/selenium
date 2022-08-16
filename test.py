@@ -37,8 +37,14 @@ def get_browser_option(browser):
     }
     return switcher.get(browser, ChromeOptions())
 
-def navegarPagina(driver):
-    forms1 = driver.find_element(By.ID,"")
+def login(driver):
+    form1 = driver.find_element(By.ID, "user")
+    form1.send_keys("alumno")
+    form2 = driver.find_element(By.ID, "pass")
+    form2.send_keys("alumnoipm")
+    button = driver.find_element(By.ID,"btn")
+    button.click()
+    driver.quit()
 # run_session function searches for 'BrowserStack' on duckduckgo.com
 def run_session(cap):
     cap["userName"] = os.environ.get("BROWSERSTACK_USERNAME") or "brunocalabrese_dhGcyb"
@@ -50,13 +56,8 @@ def run_session(cap):
         command_executor="https://hub.browserstack.com/wd/hub", options=options
     )
     driver.get("https://tpheroku-9-8.herokuapp.com/")
-    form1 = driver.find_element(By.ID, "user")
-    form1.send_keys("alumno")
-    form2 = driver.find_element(By.ID, "pass")
-    form2.send_keys("alumnoipm")
-    button = driver.find_element(By.ID,"btn")
-    button.click()
-    driver.quit()
+    login(driver)
+    
 # The Thread function takes run_session function and each set of capability from the caps array as an argument to run each session parallelly
 for cap in capabilities:
     Thread(target=run_session, args=(cap,)).start()
