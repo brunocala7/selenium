@@ -21,9 +21,10 @@ capabilities = [
         "buildName": BUILD_NAME,  # Your tests will be organized within this build
     },
     {
-        "browserName": "samsung",
-        "deviceName": "Samsung Galaxy S22 Ultra",
-        "osVersion": "12.0",
+        "browserName": "firefox",
+        "browserVersion": "104.0 beta",
+        "os": "Windows",
+        "osVersion": "11",
         "sessionName": "Parallel Test 2",
         "buildName": BUILD_NAME,
     }
