@@ -77,12 +77,10 @@ def formulario(driver):
     boton.click()
 
 def navegar(driver):
-    element = driver.find_element_by_xpath("element_xpath")
-    self.driver.execute_script("return arguments[0].scrollIntoView(true);", element)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     buttuns = driver.find_element(By.ID,"nav2")
     buttuns.click()
-    element = driver.find_element_by_xpath("element_xpath")
-    self.driver.execute_script("return arguments[0].scrollIntoView(true);", element)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")    
     buto = driver.find_element(By.ID,"nav3")
     buto.click()
 
