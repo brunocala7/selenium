@@ -97,7 +97,7 @@ def run_session(cap):
     driver = webdriver.Remote(
         command_executor="https://hub.browserstack.com/wd/hub", options=options
     )
-    driver.get("https://tpheroku-9-8.herokuapp.com/")
+    driver.get("https://pagina-final3.herokuapp.com/")
     loginMal(driver)
     login(driver)
     formulario(driver)

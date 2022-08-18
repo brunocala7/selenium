@@ -13,8 +13,8 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "pagina-2"
-          heroku_email: "bcalabrese04@gmail.com"
+          heroku_app_name: "pagina-final3"
+          heroku_email: "male9016@gmail.com"
       - name: 'BrowserStack Env Setup'
         uses: 'browserstack/github-actions/setup-env@master'
         with:
