@@ -45,6 +45,7 @@ def loginMal(driver):
     form2.send_keys("pepas")
     button = driver.find_element(By.ID,"btn")
     button.click()
+    driver.switchTo().alert().accept()
 
 def login(driver):
     driver.save_screenshot('screenshots1.png')
