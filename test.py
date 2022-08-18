@@ -24,7 +24,7 @@ capabilities = [
     {
         "browserName": "firefox",
         "browserVersion": "104.0 beta",
-        "os": "Android",
+        "os": "Windows",
         "osVersion": "11",
         "sessionName": "Parallel Test 2",
         "buildName": BUILD_NAME,
@@ -46,7 +46,6 @@ def loginMal(driver):
     form2.send_keys("pepas")
     button = driver.find_element(By.ID,"btn")
     button.click()
-    driver.navigate().refresh()
 
 def login(driver):
     driver.save_screenshot('screenshots1.png')
@@ -99,10 +98,10 @@ def run_session(cap):
         command_executor="https://hub.browserstack.com/wd/hub", options=options
     )
     driver.get("https://pagina-final3.herokuapp.com/")
-    loginMal(driver)
     login(driver)
     formulario(driver)
     navegar(driver)
+    loginMal(driver)
     driver.quit()
     
 # The Thread function takes run_session function and each set of capability from the caps array as an argument to run each session parallelly
