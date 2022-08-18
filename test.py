@@ -14,12 +14,12 @@ from threading import Thread
 BUILD_NAME = "browserstack-build-2"
 capabilities = [
     {
-        "browserName": "ios",
-        "deviceName": "iPad Air 4",
-        "osVersion": "14",
+        "browserName": "samsung",
+        "deviceName": "Samsung Galaxy J7 Prime",
+        "osVersion": "8.1",
         "sessionName": "BStack Python sample parallel", # test name
         "buildName": BUILD_NAME,  # Your tests will be organized within this build
-    },
+    }, # Your tests will be organized within this build,
     {
         "browserName": "firefox",
         "browserVersion": "104.0 beta",
