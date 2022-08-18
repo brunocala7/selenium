@@ -9,6 +9,7 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 from threading import Thread
 # This array 'capabilities' defines the capabilities browser, device and OS combinations where the test will run
 BUILD_NAME = "browserstack-build-2"
@@ -46,6 +47,9 @@ def loginMal(driver):
     form2.send_keys("pepas")
     button = driver.find_element(By.ID,"btn")
     button.click()
+    myElem = WebDriverWait(driver, 5).until(EC.alert_is_present())
+    driver.switchTo().alert().accept()
+
 
 def login(driver):
     driver.save_screenshot('screenshots1.png')
@@ -96,9 +100,13 @@ def run_session(cap):
         command_executor="https://hub.browserstack.com/wd/hub", options=options
     )
     driver.get("https://pagina-final3.herokuapp.com/")
+    driver.manage().window().maximize()
+    myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, 'btn')))
     login(driver)
+    myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, 'boton')))
     formulario(driver)
     navegar(driver)
+    myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, 'btn')))
     loginMal(driver)
     driver.quit()
     
