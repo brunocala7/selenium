@@ -47,8 +47,7 @@ def loginMal(driver):
     form2.send_keys("pepas")
     button = driver.find_element(By.ID,"btn")
     button.click()
-    myElem = WebDriverWait(driver, 5).until(EC.alert_is_present())
-    driver.switchTo().alert().accept()
+
 
 
 def login(driver):
@@ -100,14 +99,16 @@ def run_session(cap):
         command_executor="https://hub.browserstack.com/wd/hub", options=options
     )
     driver.get("https://pagina-final3.herokuapp.com/")
-    driver.maximize_window()
     myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, 'btn')))
     login(driver)
     myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, 'boton')))
     formulario(driver)
     navegar(driver)
     myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, 'btn')))
+    driver.maximize_window()
     loginMal(driver)
+    myElem = WebDriverWait(driver, 5).until(EC.alert_is_present())
+    driver.switch_to.alert.accept()
     driver.quit()
     
 # The Thread function takes run_session function and each set of capability from the caps array as an argument to run each session parallelly
