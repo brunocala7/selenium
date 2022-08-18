@@ -100,7 +100,7 @@ def run_session(cap):
         command_executor="https://hub.browserstack.com/wd/hub", options=options
     )
     driver.get("https://pagina-final3.herokuapp.com/")
-    driver.manage().window().maximize()
+    driver.maximize_window()
     myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, 'btn')))
     login(driver)
     myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, 'boton')))
